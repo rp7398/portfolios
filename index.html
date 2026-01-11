@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rajat Pathak | Data Science Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        <text y='.9em' font-size='90'>⚙️</text>
+        </svg>">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: bg 10s infinite;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px 60px;
+            background: rgba(0, 0, 0, .4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        section {
+            padding: 60px 65px;
+            min-height: 100vh;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00e5ff;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+        }
+
+        .hero img {
+            width: 260px;
+            border-radius: 50%;
+            border: 5px solid #00e5ff;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero span {
+            color: #00e5ff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #00e5ff;
+            color: black;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .08);
+            padding: 25px;
+            border-radius: 20px;
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, .15);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, .2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .timeline {
+            border-left: 3px solid #00e5ff;
+            padding-left: 30px;
+        }
+
+        .timeline div {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, .4);
+        }
+
+        @media(max-width:768px) {
+            section {
+                padding: 90px 25px
+            }
+
+            .hero h1 {
+                font-size: 36px
+            }
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: 52px;
+            line-height: 1.2;
+        }
+
+        .hero-left .name {
+            color: #00e5ff;
+        }
+
+        .hero-left .role {
+            margin: 15px 0;
+            font-weight: 500;
+            color: #c7f7ff;
+        }
+
+        .hero-left .intro {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: .9;
+            max-width: 600px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin: 25px 0;
+        }
+
+        .stats div {
+            background: rgba(255, 255, 255, .12);
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stats h3 {
+            color: #00e5ff;
+            font-size: 26px;
+        }
+
+        .hero-buttons {
+            margin-top: 25px;
+        }
+
+        .btn.primary {
+            background: #00e5ff;
+            color: black;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+            margin-left: 15px;
+        }
+
+        .hero-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hero-right img {
+            width: 184%;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .4);
+            transition: .4s;
+        }
+
+        .hero-right img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-right {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-left h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00e5ff;
+        }
+
+        .about-left p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            opacity: .92;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .about-highlights div {
+            background: rgba(255, 255, 255, .1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .about-highlights h3 {
+            color: #00e5ff;
+            margin-bottom: 8px;
+        }
+
+        .about-right {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .about-right img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .45);
+            transition: .4s;
+        }
+
+        .about-right img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        .education h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #00e5ff;
+        }
+
+        .edu-timeline {
+            position: relative;
+            border-left: 3px solid #00e5ff;
+            padding-left: 40px;
+        }
+
+        .edu-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: #00e5ff;
+            border-radius: 50%;
+        }
+
+        .edu-year {
+            font-weight: 600;
+            color: #00e5ff;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .edu-content {
+            background: rgba(255, 255, 255, .08);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .edu-content h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .edu-content h4 {
+            font-size: 14px;
+            opacity: .7;
+            margin-bottom: 15px;
+        }
+
+        .edu-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .edu-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .edu-content ul li {
+            margin-bottom: 8px;
+            opacity: .9;
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .edu-timeline {
+                padding-left: 25px;
+            }
+
+            .edu-item::before {
+                left: -38px;
+            }
+        }
+
+        .projects h2 {
+            font-size: 36px;
+            color: #00e5ff;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            max-width: 900px;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: .9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            background: rgba(255, 255, 255, .08);
+            padding: 30px;
+            border-radius: 25px;
+            transition: .4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, .15);
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 16px;
+            margin-bottom: 15px;
+            opacity: .9;
+        }
+
+        .project-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .project-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .tech-stack span {
+            display: inline-block;
+            background: rgba(255, 255, 255, .2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 5px 5px 0 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skills h2 {
+            font-size: 36px;
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .skills .section-intro {
+            max-width: 900px;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: .9;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            /* Force 5 cards in one row */
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, .08);
+            padding: 30px;
+            border-radius: 25px;
+            transition: .4s;
+        }
+
+        .skill-card:hover {
+            background: rgba(255, 255, 255, .15);
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 20px;
+            color: #00e5ff;
+        }
+
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill span {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .bar {
+            background: rgba(255, 255, 255, .2);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .bar div {
+            height: 10px;
+            background: #00e5ff;
+            border-radius: 20px;
+            transition: width 1s ease;
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .contact-intro {
+            max-width: 900px;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: .9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: rgba(255, 255, 255, .08);
+            padding: 30px;
+            border-radius: 25px;
+        }
+
+        .contact-info h3,
+        .contact-form h3 {
+            color: #00e5ff;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .contact-info i {
+            color: #00e5ff;
+            margin-right: 10px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px 10px 0 0;
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .availability {
+            margin-top: 25px;
+        }
+
+        .availability h4 {
+            margin-bottom: 10px;
+        }
+
+        .availability ul {
+            margin-left: 20px;
+        }
+
+        .availability li {
+            margin-bottom: 6px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .15);
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ddd;
+        }
+
+        .contact-form button {
+            width: 100%;
+        }
+
+        .form-note {
+            font-size: 13px;
+            opacity: .7;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, .4);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px 15px 0 0;
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .certifications h2 {
+            font-size: 36px;
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .certifications .section-intro {
+            max-width: 900px;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: .9;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            /* Force 5 cards in one row */
+            gap: 30px;
+        }
+
+        /* Tablet */
+        @media(max-width:1200px) {
+            .cert-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+            .cert-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+
+        .cert-card {
+            background: rgba(255, 255, 255, .08);
+            padding: 25px;
+            border-radius: 20px;
+            transition: .4s;
+        }
+
+        .cert-card:hover {
+            background: rgba(255, 255, 255, .15);
+            transform: translateY(-8px);
+        }
+
+        .cert-card h3 {
+            color: #00e5ff;
+            margin-bottom: 5px;
+        }
+
+        .cert-card .issuer {
+            font-size: 14px;
+            opacity: .7;
+            margin-bottom: 10px;
+        }
+
+        .cert-card .desc {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .status.completed {
+            background: #00e5ff;
+            color: #000;
+        }
+
+        .status.ongoing {
+            background: #ffb703;
+            color: #000;
+        }
+
+        .alt-cert .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card.alt {
+            background: rgba(255, 255, 255, .08);
+            padding: 30px;
+            border-radius: 25px;
+            transition: .4s;
+        }
+
+        .cert-card.alt:hover {
+            background: rgba(255, 255, 255, .15);
+            transform: translateY(-10px);
+        }
+
+        .cert-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .cert-header i {
+            font-size: 26px;
+            color: #00e5ff;
+        }
+
+        .cert-card.alt h3 {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .cert-card.alt .issuer {
+            font-size: 14px;
+            opacity: .75;
+            margin-bottom: 12px;
+        }
+
+        .cert-card.alt .desc {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            background: rgba(0, 229, 255, .2);
+            color: #00e5ff;
+        }
+
+        /* Custom Cursor */
+        .cursor,
+        .cursor-follower {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor {
+            width: 8px;
+            height: 8px;
+            background: #00e5ff;
+        }
+
+        .cursor-follower {
+            width: 35px;
+            height: 35px;
+            border: 2px solid rgba(0, 229, 255, .5);
+            transition: transform .15s ease-out;
+        }
+
+        /* Hover effect */
+        a:hover~.cursor-follower,
+        button:hover~.cursor-follower {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+        .hero-right img{
+    height: 380px;
+    object-fit: cover;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h3>Rajat Pathak</h3>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+
+    <section id="home" class="hero">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-left" data-aos="fade-right">
+            <h1>
+                Hi, I'm <span class="name">Rajat Pathak</span>
+            </h1>
+
+            <h2 class="role">
+                MSc Data Science | AI & ML Engineer | Full-Stack Developer
+            </h2>
+
+            <p class="intro">
+                I build intelligent, scalable, and data-driven applications using
+                Machine Learning, Artificial Intelligence, Big Data, and modern Web Technologies.
+                Passionate about solving real-world problems through data and automation.
+            </p>
+
+
+
+            <!-- BUTTONS -->
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="hero-right" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Developer working on data project">
+
+        </div>
+
+    </section>
+
+
+    <section id="about" class="about">
+
+        <!-- LEFT CONTENT -->
+        <div class="about-left" data-aos="fade-up">
+            <h2>About Me</h2>
+
+            <p>
+                I am <strong>Rajat Pathak</strong>, a Computer Science graduate currently pursuing an
+                <strong>MSc in Data Science</strong>. My academic journey and self-learning efforts
+                have shaped a strong foundation in programming, data analysis, and intelligent system design.
+            </p>
+
+            <p>
+                I specialize in building <strong>end-to-end data-driven solutions</strong> —
+                from collecting and preprocessing data to training machine learning models
+                and deploying them as scalable web applications.
+                I enjoy transforming raw data into meaningful insights and real-world impact.
+            </p>
+
+            <p>
+                My technical experience spans across <strong>Machine Learning, Deep Learning,
+                    Natural Language Processing, Big Data Analytics</strong>, and
+                <strong>Full-Stack Web Development</strong>.
+                I have worked extensively with tools such as Python, Apache Spark (PySpark),
+                SQL, Flask, Docker, CI/CD pipelines, and cloud platforms.
+            </p>
+
+            <p>
+                Beyond technical skills, I focus on writing clean, maintainable code,
+                following industry best practices, and continuously improving system performance,
+                scalability, and reliability.
+            </p>
+
+            <!-- HIGHLIGHTS -->
+            <div class="about-highlights">
+                <div>
+                    <h3>Problem Solver</h3>
+                    <p>Strong analytical mindset with a focus on real-world problem solving.</p>
+                </div>
+                <div>
+                    <h3>Project-Driven</h3>
+                    <p>Hands-on experience through academic and self-initiated projects.</p>
+                </div>
+                <div>
+                    <h3>Continuous Learner</h3>
+                    <p>Actively learning modern AI, MLOps, and cloud technologies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="about-right" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72" alt="Data Science Work">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Analytics Dashboard">
+        </div>
+
+    </section>
+
+
+    <section id="education" class="education">
+
+        <h2>Education</h2>
+
+        <div class="edu-timeline">
+
+            <!-- MSc -->
+            <div class="edu-item">
+                <span class="edu-year">2025 – Present</span>
+                <div class="edu-content">
+                    <h3>MSc in Data Science</h3>
+                    <h4>Postgraduate Degree</h4>
+
+                    <p>
+                        Currently pursuing a Master’s degree focused on advanced data science concepts,
+                        artificial intelligence, and large-scale data processing. This program combines
+                        theoretical foundations with practical, project-based learning.
+                    </p>
+
+                    <ul>
+                        <li>Advanced Machine Learning & Statistical Modeling</li>
+                        <li>Deep Learning & Neural Networks</li>
+                        <li>Big Data Analytics using Apache Spark</li>
+                        <li>Natural Language Processing & Text Mining</li>
+                        <li>Data Visualization & Business Intelligence</li>
+                    </ul>
+
+                    <p>
+                        Gained hands-on experience through academic projects involving
+                        real-world datasets, model evaluation, and deployment using
+                        Python, PySpark, SQL, Flask, Docker, and CI/CD workflows.
+                    </p>
+                </div>
+            </div>
+
+            <!-- BSc -->
+            <div class="edu-item">
+                <span class="edu-year">2022 – 2025</span>
+                <div class="edu-content">
+                    <h3>BSc in Computer Science</h3>
+                    <h4>Undergraduate Degree</h4>
+
+                    <p>
+                        Completed a Bachelor’s degree that built a strong foundation in
+                        computer science principles, programming, and system-level understanding.
+                    </p>
+
+                    <ul>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Object-Oriented Programming</li>
+                        <li>Database Management Systems (SQL)</li>
+                        <li>Operating Systems & Computer Networks</li>
+                        <li>Software Engineering & Web Development</li>
+                    </ul>
+
+                    <p>
+                        Developed problem-solving skills through practical assignments and projects,
+                        strengthening understanding of software development life cycle and backend systems.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section id="projects" class="projects">
+
+        <h2>Projects</h2>
+        <p class="section-intro">
+            Below are some of my key academic and self-learning projects that demonstrate
+            my ability to apply data science, machine learning, and software engineering
+            concepts to real-world problems.
+        </p>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd" alt="Fake News Detection">
+
+                <div class="project-content">
+                    <h3>Real-Time Fraud Detection System</h3>
+
+                    <p class="project-desc">
+                        Designed and implemented a real-time fraud detection system capable of
+                        processing high-velocity transaction streams and identifying suspicious
+                        activities with low latency using distributed data processing and machine learning.
+                    </p>
+
+                    <ul>
+                        <li>Ingested live transaction data using Apache Kafka for real-time streaming</li>
+                        <li>Processed and analyzed data streams using Apache Spark Structured Streaming</li>
+                        <li>Applied anomaly detection and rule-based logic to identify potential fraud cases</li>
+                        <li>Engineered real-time features such as transaction frequency, amount deviation, and user
+                            behavior patterns</li>
+                        <li>Integrated alerting mechanisms for immediate fraud notifications</li>
+                        <li>Designed a scalable and fault-tolerant data pipeline</li>
+                        <li>Containerized services using Docker for consistent deployment</li>
+                        <li>Prepared the system for MLOps integration and continuous model updates</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Apache Kafka</span>
+                        <span>Apache Spark</span>
+                        <span>Structured Streaming</span>
+                        <span>Anomaly Detection</span>
+                        <span>Docker</span>
+                        <span>MLOps</span>
+                        <span>CI/CD</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Fraud Detection">
+
+                <div class="project-content">
+                    <h3>Automobile Price Analysis & Prediction System</h3>
+
+                    <p class="project-desc">
+                        Developed a data-driven automobile price analysis and prediction system
+                        to estimate vehicle prices based on key features such as brand, model,
+                        engine specifications, mileage, fuel type, and manufacturing year.
+                    </p>
+
+                    <ul>
+                        <li>Collected and explored automobile datasets to understand pricing patterns and feature
+                            relationships</li>
+                        <li>Performed data cleaning, handling of missing values, and outlier detection</li>
+                        <li>Conducted exploratory data analysis (EDA) using statistical and visual techniques</li>
+                        <li>Engineered relevant features to improve model performance</li>
+                        <li>Trained and evaluated multiple regression models to predict automobile prices</li>
+                        <li>Compared model performance using metrics such as R², MAE, and RMSE</li>
+                        <li>Built an interactive interface for real-time price prediction</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Data Analysis</span>
+                        <span>Machine Learning</span>
+                        <span>Regression</span>
+                        <span>EDA</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051" alt="ETL Pipeline">
+
+                <div class="project-content">
+                    <h3>ETL Data Pipeline using Docker</h3>
+
+                    <p class="project-desc">
+                        Designed and implemented a complete ETL (Extract, Transform, Load) data pipeline
+                        to process raw data from source systems, apply transformations, and load
+                        clean, structured data into a target database using containerized services.
+                    </p>
+
+                    <ul>
+                        <li>Extracted data from multiple sources including CSV files and relational databases</li>
+                        <li>Performed data cleaning, validation, and transformation using Python</li>
+                        <li>Handled missing values, schema normalization, and data type conversions</li>
+                        <li>Loaded transformed data into a structured database for analytics and reporting</li>
+                        <li>Containerized the ETL pipeline using Docker for consistency and portability</li>
+                        <li>Used Docker Compose to manage multi-container services</li>
+                        <li>Ensured reproducible and scalable data processing workflows</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>ETL</span>
+                        <span>Data Engineering</span>
+                        <span>Docker</span>
+                        <span>Docker Compose</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a" alt="College Support Chatbot">
+
+                <div class="project-content">
+                    <h3>College Support Chatbot</h3>
+
+                    <p class="project-desc">
+                        Developed a web-based college support chatbot designed to assist students by
+                        providing instant responses to common academic and administrative queries such as
+                        admissions, examinations, syllabus details, timetables, and college facilities.
+                    </p>
+
+                    <ul>
+                        <li>Designed a conversational chatbot interface for student interaction</li>
+                        <li>Implemented rule-based and keyword-driven response logic</li>
+                        <li>Handled common student queries related to courses, departments, exams, and notices</li>
+                        <li>Integrated chatbot with a structured knowledge base for accurate responses</li>
+                        <li>Ensured user-friendly UI for easy adoption by students</li>
+                        <li>Reduced manual workload on college administrative staff</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Chatbot</span>
+                        <span>Rule-Based NLP</span>
+                        <span>Flask</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Website Blocker">
+
+                <div class="project-content">
+                    <h3>Website Blocker Application (Web Based)</h3>
+
+                    <p class="project-desc">
+                        Developed a Python-based website blocker application aimed at improving productivity
+                        by restricting access to distracting websites during focused study or working hours.
+                        The system modifies local host configurations to control website accessibility.
+                    </p>
+
+                    <ul>
+                        <li>Implemented logic to block and unblock websites based on user-defined time intervals</li>
+                        <li>Modified system host file entries to redirect restricted websites</li>
+                        <li>Allowed scheduling of focus hours for automatic website blocking</li>
+                        <li>Ensured safe restoration of host file after blocking period</li>
+                        <li>Tested the application across different scenarios to ensure reliability</li>
+                        <li>Designed the project to encourage disciplined and distraction-free study habits</li>
+                    </ul>
+
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>File Handling</span>
+                        <span>Automation</span>
+                        <span>Operating Systems</span>
+                        <span>Productivity Tool</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section id="skills" class="skills">
+
+        <h2>Technical Skills</h2>
+        <p class="section-intro">
+            A comprehensive overview of tools, technologies, and platforms I have worked with
+            across data science, data engineering, DevOps, and full-stack development.
+        </p>
+
+        <div class="skills-grid">
+
+            <!-- Programming & Core Tools -->
+            <div class="skill-card">
+                <h3>Programming & Core Tools</h3>
+
+                <div class="skill"><span>Python</span>
+                    <div class="bar">
+                        <div style="width:90%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>SQL</span>
+                    <div class="bar">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Excel</span>
+                    <div class="bar">
+                        <div style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>VS Code</span>
+                    <div class="bar">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Jupyter Notebook</span>
+                    <div class="bar">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Science & Machine Learning -->
+            <div class="skill-card">
+                <h3>Data Science & Machine Learning</h3>
+
+                <div class="skill"><span>Data Analysis</span>
+                    <div class="bar">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Machine Learning (Model Training & Evaluation)</span>
+                    <div class="bar">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Feature Engineering</span>
+                    <div class="bar">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Kaggle (Datasets & Notebooks)</span>
+                    <div class="bar">
+                        <div style="width:70%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Big Data & Data Engineering -->
+            <div class="skill-card">
+                <h3>Big Data & Data Engineering</h3>
+
+                <div class="skill"><span>Apache Spark (PySpark)</span>
+                    <div class="bar">
+                        <div style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Hadoop (Basic)</span>
+                    <div class="bar">
+                        <div style="width:55%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>ETL Pipelines</span>
+                    <div class="bar">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>SQL for Analytics</span>
+                    <div class="bar">
+                        <div style="width:85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps, Cloud & MLOps -->
+            <div class="skill-card">
+                <h3>DevOps, Cloud & MLOps</h3>
+
+                <div class="skill"><span>Docker & Docker Compose</span>
+                    <div class="bar">
+                        <div style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Jenkins (CI/CD)</span>
+                    <div class="bar">
+                        <div style="width:75%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>AWS (Basic – EC2, S3)</span>
+                    <div class="bar">
+                        <div style="width:65%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>MLOps Concepts</span>
+                    <div class="bar">
+                        <div style="width:70%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="skill-card">
+                <h3>Web Development</h3>
+
+                <div class="skill"><span>HTML & CSS</span>
+                    <div class="bar">
+                        <div style="width:90%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>JavaScript</span>
+                    <div class="bar">
+                        <div style="width:52%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>React</span>
+                    <div class="bar">
+                        <div style="width:70%"></div>
+                    </div>
+                </div>
+                <div class="skill"><span>Node.js</span>
+                    <div class="bar">
+                        <div style="width:65%"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications alt-cert">
+
+        <h2>Certifications & Professional Training</h2>
+        <p class="section-intro">
+            Verified certifications completed as part of academic learning and
+            industry-oriented training programs, strengthening my technical and analytical foundation.
+        </p>
+
+        <div class="cert-grid">
+
+            <div class="cert-card alt">
+                <div class="cert-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Machine Learning Engineer Foundation</h3>
+                </div>
+                <p class="issuer">Reliance Foundation Skilling Academy</p>
+                <p class="desc">
+                    Learned core concepts of artificial intelligence and machine learning,
+                    including model fundamentals, AI use cases, and intelligent system workflows.
+                </p>
+                <span class="tag">AI • Machine Learning</span>
+            </div>
+
+            <div class="cert-card alt">
+                <div class="cert-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Science for Everyone</h3>
+                </div>
+                <p class="issuer">Reliance Foundation Skilling Academy</p>
+                <p class="desc">
+                    Covered foundational data science concepts, real-world applications,
+                    data-driven thinking, and analytics basics for decision making.
+                </p>
+                <span class="tag">Data Science</span>
+            </div>
+
+            <div class="cert-card alt">
+                <div class="cert-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Front-End Data Analytics 101</h3>
+                </div>
+                <p class="issuer">Reliance Foundation Skilling Academy</p>
+                <p class="desc">
+                    Focused on understanding datasets, analytical interpretation,
+                    and presenting insights through front-end and analytics tools.
+                </p>
+                <span class="tag">Analytics • Visualization</span>
+            </div>
+
+            <div class="cert-card alt">
+                <div class="cert-header">
+                    <i class="fas fa-database"></i>
+                    <h3>Database for Developers</h3>
+                </div>
+                <p class="issuer">Reliance Foundation Skilling Academy</p>
+                <p class="desc">
+                    Strengthened database fundamentals including SQL, data modeling,
+                    structured storage, and developer-oriented database practices.
+                </p>
+                <span class="tag">Databases • SQL</span>
+            </div>
+
+            <div class="cert-card alt">
+                <div class="cert-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Analyst Certificate Programme</h3>
+                </div>
+                <p class="issuer">Reliance Foundation Skilling Academy</p>
+                <p class="desc">
+                    Gained foundational cybersecurity knowledge covering threats,
+                    vulnerabilities, risk assessment, and basic security analysis.
+                </p>
+                <span class="tag">Cybersecurity • Security</span>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section id="contact" class="contact">
+
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">
+            I’m open to opportunities in Data Science, Machine Learning, Data Engineering,
+            and Software Development. Feel free to reach out for collaborations,
+            internships, project discussions, or technical conversations.
+        </p>
+
+        <div class="contact-grid">
+
+            <!-- CONTACT INFO -->
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+
+                <p class="social-links">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:rajatpathak522@gmail.com">rajatpathak522@gmail.com</a>
+                </p>
+
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    India
+                </p>
+
+                <p>
+                    <i class="fas fa-briefcase"></i>
+                    Open to Internships & Entry-Level Roles
+                </p>
+
+                <div class="social-links">
+                    <a href="https://github.com/rp7398" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/rajatpathak-data/" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+
+                    <a href="#certifications">
+                        <i class="fas fa-certificate"></i> Certifications
+                    </a>
+                </div>
+
+                <div class="availability">
+                    <h4>Currently Interested In</h4>
+                    <ul>
+                        <li>Data Science & Analytics Roles</li>
+                        <li>Machine Learning Projects</li>
+                        <li>ETL & Data Engineering Work</li>
+                        <li>Open Source Contributions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTACT FORM -->
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+
+                <p id="form-status" class="form-note"></p>
+
+
+                <p id="form-status" class="form-note"></p>
+
+
+                <p class="form-note">
+                    * This is a frontend demo form. Can be connected to EmailJS or backend anytime.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 <strong>Rajat Pathak</strong> | Building Data-Driven Solutions</p>
+    </footer>
+
+
+    <script>
+        const text = "Rajat Pathak";
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++; setTimeout(type, 120);
+            }
+        }
+        type();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("H9wR9hHCP3MwH2QEk"); // 🔴 replace
+        })();
+    </script>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const status = document.getElementById("form-status");
+            status.innerHTML = "Sending message...";
+
+            emailjs.sendForm(
+                "service_g9qhhdk",   // 🔴 replace
+                "template_xj14l6l",  // 🔴 replace
+                this
+            ).then(() => {
+                status.innerHTML = "✅ Message sent successfully!";
+                this.reset();
+            }, (error) => {
+                status.innerHTML = "❌ Failed to send message. Try again.";
+                console.error(error);
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+        const follower = document.querySelector(".cursor-follower");
+
+        document.addEventListener("mousemove", e => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+
+            follower.style.left = e.clientX + "px";
+            follower.style.top = e.clientY + "px";
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
